@@ -3,6 +3,11 @@
 # 2022-10-13
 # Special Thanks To @MrCarb0n
 
+## Instructions
+#📌 Rename and add Emoji- in front of the name of the Emoji font. eg, Rename WhatsappEmoji.ttf to Emoji-WhatsappEmoji.ttf
+#📌 Copy the script (sh) file and the Renamed Emoji font to OMF Directory
+#📌 Extension Replaces system emoji and Facebook/Messenger emojis as well
+
 [ ! -d $OMFDIR/service.d ] && mkdir -p $OMFDIR/service.d
 
 uniemoji(){
