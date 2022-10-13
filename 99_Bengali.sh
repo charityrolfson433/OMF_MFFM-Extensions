@@ -31,45 +31,45 @@
 ## Finally put the script in the OMF Directory and flash the OMF powered module. 
 
 bffiles(){
-    if [ -f $OMFDIR/Bengali-Regular.ttf ]; then
-	    cp $OMFDIR/Bengali-Regular.ttf $SYSFONT/NotoSansBengali-VF.ttf
-	    cp $OMFDIR/Bengali-Medium.ttf $SYSFONT/NotoSerifBengali-VF.ttf
-	    cp $OMFDIR/Bengali-Bold.ttf $SYSFONT/NotoSansBengaliUI-VF.ttf
-	fi
-	if [ -f $OMFDIR/Beng-Regular.ttf ]; then
-	    cp $OMFDIR/Beng-Regular.ttf $SYSFONT/NotoSansBengali-VF.ttf
-	    cp $OMFDIR/Beng-Medium.ttf $SYSFONT/NotoSerifBengali-VF.ttf
-	    cp $OMFDIR/Beng-Bold.ttf $SYSFONT/NotoSansBengaliUI-VF.ttf
-	fi
-	if [ -f $OMFDIR/Bengali*.zip ]; then
-	    unzip -q $OMFDIR/Bengali*.zip -d $MODPATH
-		cp $MODPATH/Beng-Regular.ttf $SYSFONT/NotoSansBengali-VF.ttf
-	    cp $MODPATH/Beng-Medium.ttf $SYSFONT/NotoSerifBengali-VF.ttf
-	    cp $MODPATH/Beng-Bold.ttf $SYSFONT/NotoSansBengaliUI-VF.ttf	
-	    cp $MODPATH/Bengali-Regular.ttf $SYSFONT/NotoSansBengali-VF.ttf
-	    cp $MODPATH/Bengali-Medium.ttf $SYSFONT/NotoSerifBengali-VF.ttf
-	    cp $MODPATH/Bengali-Bold.ttf $SYSFONT/NotoSansBengaliUI-VF.ttf
-	elif [ -f $OMFDIR/Beng*.zip ]; then
-	    unzip -q $OMFDIR/Beng*.zip -d $MODPATH    
-	    cp $MODPATH/Beng-Regular.ttf $SYSFONT/NotoSansBengali-VF.ttf
-	    cp $MODPATH/Beng-Medium.ttf $SYSFONT/NotoSerifBengali-VF.ttf
-	    cp $MODPATH/Beng-Bold.ttf $SYSFONT/NotoSansBengaliUI-VF.ttf	
-	    cp $MODPATH/Bengali-Regular.ttf $SYSFONT/NotoSansBengali-VF.ttf
-	    cp $MODPATH/Bengali-Medium.ttf $SYSFONT/NotoSerifBengali-VF.ttf
-	    cp $MODPATH/Bengali-Bold.ttf $SYSFONT/NotoSansBengaliUI-VF.ttf
-	fi
+   if [ -f $OMFDIR/Bengali-Regular.ttf ]; then
+       cp $OMFDIR/Bengali-Regular.ttf $SYSFONT/NotoSansBengali-VF.ttf
+       cp $OMFDIR/Bengali-Medium.ttf $SYSFONT/NotoSerifBengali-VF.ttf
+       cp $OMFDIR/Bengali-Bold.ttf $SYSFONT/NotoSansBengaliUI-VF.ttf
+   fi
+   if [ -f $OMFDIR/Beng-Regular.ttf ]; then
+      cp $OMFDIR/Beng-Regular.ttf $SYSFONT/NotoSansBengali-VF.ttf
+      cp $OMFDIR/Beng-Medium.ttf $SYSFONT/NotoSerifBengali-VF.ttf
+      cp $OMFDIR/Beng-Bold.ttf $SYSFONT/NotoSansBengaliUI-VF.ttf
+   fi
+   if [ -f $OMFDIR/Bengali*.zip ]; then
+       unzip -q $OMFDIR/Bengali*.zip -d $MODPATH
+       cp $MODPATH/Beng-Regular.ttf $SYSFONT/NotoSansBengali-VF.ttf
+       cp $MODPATH/Beng-Medium.ttf $SYSFONT/NotoSerifBengali-VF.ttf
+       cp $MODPATH/Beng-Bold.ttf $SYSFONT/NotoSansBengaliUI-VF.ttf	
+       cp $MODPATH/Bengali-Regular.ttf $SYSFONT/NotoSansBengali-VF.ttf
+       cp $MODPATH/Bengali-Medium.ttf $SYSFONT/NotoSerifBengali-VF.ttf
+       cp $MODPATH/Bengali-Bold.ttf $SYSFONT/NotoSansBengaliUI-VF.ttf
+ elif [ -f $OMFDIR/Beng*.zip ]; then
+       unzip -q $OMFDIR/Beng*.zip -d $MODPATH    
+       cp $MODPATH/Beng-Regular.ttf $SYSFONT/NotoSansBengali-VF.ttf
+       cp $MODPATH/Beng-Medium.ttf $SYSFONT/NotoSerifBengali-VF.ttf
+       cp $MODPATH/Beng-Bold.ttf $SYSFONT/NotoSansBengaliUI-VF.ttf	
+       cp $MODPATH/Bengali-Regular.ttf $SYSFONT/NotoSansBengali-VF.ttf
+       cp $MODPATH/Bengali-Medium.ttf $SYSFONT/NotoSerifBengali-VF.ttf
+       cp $MODPATH/Bengali-Bold.ttf $SYSFONT/NotoSansBengaliUI-VF.ttf
+   fi
 }
 
 bpatch(){
     if [ -f $SYSFONT/NotoSansBengali-VF.ttf ]; then
 	ui_print '+ Bengali'
-    local italic=false; mksty und-Beng.* 7 4
-    font und-Beng.* NotoSansBengali-VF.ttf r
-    font und-Beng.* NotoSerifBengali-VF.ttf m
-    font und-Beng.* NotoSerifBengali-VF.ttf sb
-    font und-Beng.* NotoSansBengaliUI-VF.ttf b
-    ver Beng
-	fi
+        local italic=false; mksty und-Beng.* 7 4
+        font und-Beng.* NotoSansBengali-VF.ttf r
+        font und-Beng.* NotoSerifBengali-VF.ttf m
+        font und-Beng.* NotoSerifBengali-VF.ttf sb
+        font und-Beng.* NotoSansBengaliUI-VF.ttf b
+        ver Beng
+    fi
 }
 
 bffiles
