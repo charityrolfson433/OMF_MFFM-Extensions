@@ -63,11 +63,16 @@ bffiles(){
 bpatch(){
     if [ -f $SYSFONT/NotoSansBengali-VF.ttf ]; then
 	ui_print '+ Bengali'
-        local italic=false; mksty und-Beng.* 7 4
-        font und-Beng.* NotoSansBengali-VF.ttf r
-        font und-Beng.* NotoSerifBengali-VF.ttf m
-        font und-Beng.* NotoSerifBengali-VF.ttf sb
-        font und-Beng.* NotoSansBengaliUI-VF.ttf b
+        sed -i '/<family lang=\"und-Beng\" variant=\"elegant\">/ a         <font weight=\"400\" style=\"normal\">NotoSansBengali-VF.ttf<\/font>\n        <font weight=\"500\" style=\"normal\">NotoSerifBengali-VF.ttf<\/font>\n        <font weight=\"700\" style=\"normal\">NotoSansBengaliUI-VF.ttf<\/font>' $SYSXML
+	sed -i '/<font weight=\"400\" style=\"normal\" postScriptName=\"NotoSansBengali-Regular\">/,/<\/font>/d' $SYSXML
+	sed -i '/<font weight=\"500\" style=\"normal\" postScriptName=\"NotoSansBengali-Regular\">/,/<\/font>/d' $SYSXML
+	sed -i '/<font weight=\"600\" style=\"normal\" postScriptName=\"NotoSansBengali-Regular\">/,/<\/font>/d' $SYSXML
+	sed -i '/<font weight=\"700\" style=\"normal\" postScriptName=\"NotoSansBengali-Regular\">/,/<\/font>/d' $SYSXML		
+	sed -i '/<family lang=\"und-Beng\" variant=\"compact\">/ a         <font weight=\"400\" style=\"normal\">NotoSansBengali-VF.ttf<\/font>\n        <font weight=\"500\" style=\"normal\">NotoSerifBengali-VF.ttf<\/font>\n        <font weight=\"700\" style=\"normal\">NotoSansBengaliUI-VF.ttf<\/font>' $SYSXML
+	sed -i '/<font weight=\"400\" style=\"normal\" postScriptName=\"NotoSansBengaliUI-Regular\">/,/<\/font>/d' $SYSXML
+	sed -i '/<font weight=\"500\" style=\"normal\" postScriptName=\"NotoSansBengaliUI-Regular\">/,/<\/font>/d' $SYSXML
+	sed -i '/<font weight=\"600\" style=\"normal\" postScriptName=\"NotoSansBengaliUI-Regular\">/,/<\/font>/d' $SYSXML
+	sed -i '/<font weight=\"700\" style=\"normal\" postScriptName=\"NotoSansBengaliUI-Regular\">/,/<\/font>/d' $SYSXML		
         ver Beng
     fi
 }
