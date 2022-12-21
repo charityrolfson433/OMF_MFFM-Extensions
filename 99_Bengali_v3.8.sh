@@ -1,5 +1,5 @@
 #--Bengali Extension for OMF
-#--v3.7
+#--v3.8
 #--2022/12/22
 #--By MFFM
 
@@ -63,16 +63,10 @@ bffiles(){
 bpatch(){
     if [ -f $SYSFONT/NotoSansBengali-VF.ttf ]; then
 	ui_print '+ Bengali'
+	sed -i -n '/<family lang=\"und-Beng\" variant=\"elegant\">/{p; :a; N; /<\/family>/!ba; s/.*\n//}; p' $SYSXML	
         sed -i '/<family lang=\"und-Beng\" variant=\"elegant\">/ a         <font weight=\"400\" style=\"normal\">NotoSansBengali-VF.ttf<\/font>\n        <font weight=\"500\" style=\"normal\">NotoSerifBengali-VF.ttf<\/font>\n        <font weight=\"700\" style=\"normal\">NotoSansBengaliUI-VF.ttf<\/font>' $SYSXML
-	sed -i '/<font weight=\"400\" style=\"normal\" postScriptName=\"NotoSansBengali-Regular\">/,/<\/font>/d' $SYSXML
-	sed -i '/<font weight=\"500\" style=\"normal\" postScriptName=\"NotoSansBengali-Regular\">/,/<\/font>/d' $SYSXML
-	sed -i '/<font weight=\"600\" style=\"normal\" postScriptName=\"NotoSansBengali-Regular\">/,/<\/font>/d' $SYSXML
-	sed -i '/<font weight=\"700\" style=\"normal\" postScriptName=\"NotoSansBengali-Regular\">/,/<\/font>/d' $SYSXML		
-	sed -i '/<family lang=\"und-Beng\" variant=\"compact\">/ a         <font weight=\"400\" style=\"normal\">NotoSansBengali-VF.ttf<\/font>\n        <font weight=\"500\" style=\"normal\">NotoSerifBengali-VF.ttf<\/font>\n        <font weight=\"700\" style=\"normal\">NotoSansBengaliUI-VF.ttf<\/font>' $SYSXML
-	sed -i '/<font weight=\"400\" style=\"normal\" postScriptName=\"NotoSansBengaliUI-Regular\">/,/<\/font>/d' $SYSXML
-	sed -i '/<font weight=\"500\" style=\"normal\" postScriptName=\"NotoSansBengaliUI-Regular\">/,/<\/font>/d' $SYSXML
-	sed -i '/<font weight=\"600\" style=\"normal\" postScriptName=\"NotoSansBengaliUI-Regular\">/,/<\/font>/d' $SYSXML
-	sed -i '/<font weight=\"700\" style=\"normal\" postScriptName=\"NotoSansBengaliUI-Regular\">/,/<\/font>/d' $SYSXML		
+	sed -i -n '/<family lang=\"und-Beng\" variant=\"compact\">/{p; :a; N; /<\/family>/!ba; s/.*\n//}; p' $SYSXML		
+	sed -i '/<family lang=\"und-Beng\" variant=\"compact\">/ a         <font weight=\"400\" style=\"normal\">NotoSansBengali-VF.ttf<\/font>\n        <font weight=\"500\" style=\"normal\">NotoSerifBengali-VF.ttf<\/font>\n        <font weight=\"700\" style=\"normal\">NotoSansBengaliUI-VF.ttf<\/font>' $SYSXML			
         ver Beng
     fi
 }
